@@ -8,10 +8,6 @@ fn main() {
         println!("1: Convert Celsius to Fahrenheit");
         println!("2: Convert Celsius to Fahrenheit");
 
-        print!("Selection: ");
-
-        io::stdout().flush().expect("Failed to flush");
-
         let mut selection = String::new();
 
         io::stdin()
@@ -50,6 +46,15 @@ fn main() {
                 let result = convert_celsius_to_fahrenheit(celsius);
 
                 println!("Fahrenheit: {result}");
+                println!("\nPress Enter to continue...");
+
+                let mut buffer = String::new();
+
+                std::io::stdin()
+                    .read_line(&mut buffer)
+                    .expect("Failed to read line");
+
+                clear_terminal_screen();
                 break;
             }
         } else if selection == 2 {
@@ -75,6 +80,15 @@ fn main() {
                 let result = convert_fahrenheit_to_celsius(fahrenheit);
 
                 println!("Celsius: {result}");
+                println!("\nPress Enter to continue...");
+
+                let mut buffer = String::new();
+
+                std::io::stdin()
+                    .read_line(&mut buffer)
+                    .expect("Failed to read line");
+
+                clear_terminal_screen();
                 break;
             }
         } else {
